@@ -1,142 +1,110 @@
-# 💰 Controle de Gastos
+<h1 align="center">Controle de Gastos - Spring Boot + HTMX</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-21-blue.svg?style=for-the-badge&logo=openjdk" alt="Java 21">
-  <img src="https://img.shields.io/badge/Spring_Boot-3.x-success.svg?style=for-the-badge&logo=spring" alt="Spring Boot">
-  <img src="https://img.shields.io/badge/HTMX-1.9.12-blueviolet.svg?style=for-the-badge&logo=htmx" alt="HTMX">
-  <img src="https://img.shields.io/badge/PostgreSQL-Neon-336791.svg?style=for-the-badge&logo=postgresql" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/Deploy-Render-46E3B7.svg?style=for-the-badge&logo=render" alt="Render">
+  <strong>Uma aplicação web Full Stack para gerenciamento financeiro, construída com o poder do Spring Boot e a simplicidade do HTMX.</strong>
 </p>
 
-> Aplicação web para controle de gastos pessoais, construída com Spring Boot. Oferece uma experiência de usuário fluida e reativa, similar a uma Single Page Application (SPA), utilizando a simplicidade do HTMX para evitar a complexidade de frameworks JavaScript.
+<p align="center">
+  <img alt="Java" src="https://img.shields.io/badge/Java-17-orange?logo=java">
+  <img alt="Spring" src="https://img.shields.io/badge/Spring_Boot-3.x-brightgreen?logo=spring">
+  <img alt="Status" src="https://img.shields.io/badge/status-finalizado-blue">
+  <a href="LICENSE"><img alt="Licença" src="https://img.shields.io/badge/license-MIT-green"></a>
+</p>
 
-Este projeto foi desenvolvido como um guia prático para estruturar, desenvolver e implantar uma aplicação Java moderna na nuvem, utilizando as melhores práticas de mercado.
+<p align="center">
+ <a href="#-sobre-o-projeto">Sobre</a> •
+ <a href="#-funcionalidades">Funcionalidades</a> •
+ <a href="#-tecnologias-utilizadas">Tecnologias</a> •
+ <a href="#-como-começar">Como Começar</a> •
+ <a href="#-autor">Autor</a>
+</p>
 
-## ✨ Features
+---
 
--   **CRUD de Lançamentos:** Adicione e exclua receitas ou despesas de forma simples.
--   **Interface Reativa:** As atualizações na lista de lançamentos ocorrem instantaneamente, sem a necessidade de recarregar a página, graças ao HTMX.
--   **Ambientes Configurados:** Utiliza Spring Profiles para gerenciar configurações de banco de dados distintas para desenvolvimento (H2) e produção (PostgreSQL).
--   **Pronto para Deploy:** Contém um `Dockerfile` otimizado para build e deploy em plataformas como o Render.
+## 💻 Sobre o Projeto
+
+Este projeto foi desenvolvido como parte da avaliação da disciplina de "Projeto de Aplicação Full Stack". A meta era criar uma solução completa (backend e frontend) para o controle de despesas, que fosse ao mesmo tempo robusta e de fácil utilização.
+
+O resultado é um sistema onde o backend, construído com **Spring Boot**, gerencia toda a lógica de negócio e a persistência dos dados, enquanto o frontend, renderizado com **Thymeleaf** e aprimorado com **HTMX**, oferece uma experiência de usuário ágil e moderna, sem a necessidade de um framework JavaScript complexo.
+
+---
+
+## ✨ Funcionalidades
+
+O sistema oferece as seguintes funcionalidades essenciais para o controle financeiro:
+
+* **`CRUD de Despesas`**: Ciclo completo de operações para gerenciar os gastos.
+    * **(C)reate**: Adicionar novas despesas com descrição, valor, data e categoria.
+    * **(R)ead**: Listar todas as despesas cadastradas de forma clara.
+    * **(U)pdate**: Editar os detalhes de qualquer despesa existente.
+    * **(D)elete**: Remover despesas que não são mais necessárias.
+* **`Interface Reativa`**: Graças ao HTMX, as ações do usuário resultam em atualizações parciais da página, tornando a navegação mais rápida e fluida.
+* **`Persistência Confiável`**: Os dados são armazenados em um banco de dados PostgreSQL, garantindo segurança e consistência.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Categoria      | Tecnologia                                                              |
-| -------------- | ----------------------------------------------------------------------- |
-| **Backend** | Java 21, Spring Boot, Spring Data JPA                                   |
-| **Frontend** | Thymeleaf, HTMX                                                         |
-| **Banco de Dados** | H2 Database (Desenvolvimento), PostgreSQL (Produção no [Neon](https://neon.tech/)) |
-| **Deploy** | Docker, [Render](https://render.com/)                                   |
-| **Build** | Maven                                                                   |
+Este projeto foi construído com um ecossistema de tecnologias modernas e eficientes, focadas em produtividade e performance.
+
+| Categoria | Tecnologia/Ferramenta |
+|-----------|-----------------------|
+| **Backend** | `Java 17`, `Spring Boot`, `Spring Web`, `Spring Data JPA` |
+| **Frontend**| `Thymeleaf`, `HTMX`, `HTML5`, `CSS3 (Bootstrap)` |
+| **Banco de Dados**| `PostgreSQL` (Produção), `H2` (Desenvolvimento) |
+| **Build/Gerenciamento** | `Apache Maven` |
+| **Deploy** | `Render.com` |
 
 ---
 
-## 📁 Estrutura do Projeto
+## 🚀 Como Começar
 
-controle-de-gastos/
-├── .git/
-├── .mvn/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── br/com/controledegastos/
-│   │   │       ├── ControleDeGastosApplication.java
-│   │   │       ├── controller/
-│   │   │       │   └── LancamentoController.java
-│   │   │       ├── model/
-│   │   │       │   ├── Lancamento.java
-│   │   │       │   └── TipoLancamento.java
-│   │   │       └── repository/
-│   │   │           └── LancamentoRepository.java
-│   │   └── resources/
-│   │       ├── templates/
-│   │       │   └── index.html
-│   │       ├── application.properties
-│   │       └── application-prod.properties
-│   └── test/
-├── .gitignore
-├── Dockerfile
-├── mvnw
-├── mvnw.cmd
-└── pom.xml
+Para executar este projeto em seu ambiente local, siga os passos detalhados abaixo.
 
+### **Pré-requisitos:**
 
----
+* **Java Development Kit (JDK)** - `Versão 17 ou superior`
+* **Apache Maven** - `Versão 3.8 ou superior`
+* **Git** para clonar o repositório
+* Um SGBD **PostgreSQL** instalado e em execução (opcional, pode usar H2)
 
-## 🚀 Como Executar Localmente
-
-### Pré-requisitos
-
--   [Git](https://git-scm.com/)
--   [Java Development Kit (JDK) 21](https://www.oracle.com/java/technologies/downloads/#jdk21)
--   [GitHub Desktop](https://desktop.github.com/) (Opcional, para quem prefere interface gráfica)
-
-### Passo a Passo
+### **Guia de Instalação:**
 
 1.  **Clone o repositório:**
-
     ```bash
-    git clone [https://github.com/seu-usuario/controle-de-gastos.git](https://github.com/seu-usuario/controle-de-gastos.git)
-    cd controle-de-gastos
+    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+    cd seu-repositorio
     ```
 
-2.  **Execute a aplicação:**
-    O projeto já vem configurado para usar o banco de dados em memória H2 no ambiente de desenvolvimento.
+2.  **Configure o Banco de Dados:**
+    * Abra o arquivo `src/main/resources/application.properties`.
+    * Atualize as propriedades `spring.datasource.url`, `spring.datasource.username`, e `spring.datasource.password` com as credenciais do seu banco PostgreSQL. Se preferir, mantenha o H2 (banco em memória) para testes.
 
+3.  **Execute a Aplicação:**
+    * Utilize o Maven Wrapper para iniciar o servidor.
     ```bash
-    # No Linux ou macOS (certifique-se que o arquivo tem permissão de execução)
-    ./mvnw spring-boot:run
-
     # No Windows
-    mvnw.cmd spring-boot:run
+    ./mvnw spring-boot:run
+    
+    # No Linux ou macOS
+    ./mvnw spring-boot:run
     ```
+    * A aplicação estará disponível em `http://localhost:8080`.
 
-3.  **Acesse a aplicação:**
-    -   **Aplicação:** Abra seu navegador em `http://localhost:8080`
-    -   **Console do Banco H2:** Acesse `http://localhost:8080/h2-console`
-        -   **JDBC URL:** `jdbc:h2:mem:testdb`
-        -   **User Name:** `sa`
-        -   **Password:** (deixe em branco)
+### **Deploy na Nuvem com Render:**
 
----
-
-## ☁️ Deploy (Neon + Render)
-
-Este projeto está configurado para deploy contínuo na nuvem usando Neon para o banco de dados PostgreSQL e Render para a aplicação.
-
-### 1. Banco de Dados no Neon
-
-1.  Crie um novo projeto no [Neon](https://neon.tech/).
-2.  Após a criação, vá em **Connection Details** e copie a **Connection string**. Guarde-a, pois ela será usada no Render.
-
-### 2. Aplicação no Render
-
-1.  No painel do [Render](https://render.com/), clique em **New + > Web Service**.
-2.  Conecte seu repositório do GitHub.
-3.  Configure o serviço da seguinte forma:
-    -   **Name:** `controle-de-gastos` (ou um nome de sua preferência)
-    -   **Region:** `Ohio (US East)` (ou a mais próxima de você)
-    -   **Branch:** `main`
-    -   **Runtime:** `Docker` (O Render detectará o `Dockerfile` automaticamente)
-    -   **Instance Type:** `Free`
-
-4.  Na seção **Advanced**, adicione as seguintes **Environment Variables**:
-
-| Chave                  | Valor                                                                          |
-| ---------------------- | ------------------------------------------------------------------------------ |
-| `SPRING_PROFILES_ACTIVE` | `prod`                                                                         |
-| `DB_URL`               | A **Connection string** completa que você copiou do Neon.                      |
-| `DB_USERNAME`          | O usuário do seu banco de dados Neon.                                          |
-| `DB_PASSWORD`          | A senha do seu banco de dados Neon.                                            |
-
-**Importante:** A URL de conexão do Neon já contém o usuário e a senha, mas é uma boa prática passá-los também em variáveis separadas, caso sua aplicação precise. Garanta que a URL contém `?sslmode=require`.
-
-5.  Clique em **Create Web Service**. O Render fará o build da imagem Docker e o deploy da sua aplicação.
+* Crie um **Web Service** no [Render](https://render.com) e conecte seu repositório.
+* **Build Command**: `./mvnw clean install`
+* **Start Command**: `java -jar target/nome-do-seu-jar.jar`
+* Não se esqueça de criar um banco de dados **PostgreSQL** no Render e configurar a variável de ambiente `SPRING_DATASOURCE_URL` no seu Web Service.
 
 ---
 
-## 📄 Licença
+## 👨‍💻 Autor
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Desenvolvido por **Giovanni dos Santos Zago**.
+
+<div>
+  <a href="https://github.com/seu-usuario" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/seu-linkedin/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+</div>
